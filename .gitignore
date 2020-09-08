@@ -1,0 +1,18 @@
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Ignored theme files
+*.sass-cache*
+*.log
+
+# Ignore build directory
+dist
+
+# Node Package Manager
+node_modules
+
+# Mac
+*.DS_Store
+thumbs.db

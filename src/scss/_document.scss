@@ -1,0 +1,41 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    background-color: $green-04;
+}
+
+section {
+    padding: 1em;
+    background-color: $green-04;
+    color: $green-02;
+    border-bottom: 1px dotted $green-03;
+
+    &.instructions {
+        display: block;
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 0 .5em;
+    padding: 0;
+
+    span  {
+        font-weight: bold;
+        color: $green-01;
+        text-transform: uppercase;
+    }
+}
+
+.posts {
+    background-color: $green-02;
+    color: $green-04;
+    padding: 1em;
+}
