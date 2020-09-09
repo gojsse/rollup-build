@@ -25,5 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.vue-app {
+  background-color: black;
+}
 </style>

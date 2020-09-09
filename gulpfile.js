@@ -1,10 +1,10 @@
 const gulp = require('gulp');
 // SCSS
-const sourcemaps = require("gulp-sourcemaps");
-const sass = require("gulp-sass");
-const postcss = require("gulp-postcss");
-const cssnano = require("cssnano");
-const autoprefixer = require("autoprefixer");
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
 // JS, VUE
 const rollup = require('rollup');
 const resolve = require('@rollup/plugin-node-resolve');
@@ -12,8 +12,8 @@ const commonjs = require('@rollup/plugin-commonjs');
 const vue = require('rollup-plugin-vue');
 const replace = require('@rollup/plugin-replace');
 const {eslint} = require('rollup-plugin-eslint');
-const babel = require('rollup-plugin-babel');
-const uglify = require('rollup-plugin-uglify-es');
+const {babel} = require('@rollup/plugin-babel');
+const {terser} = require('rollup-plugin-terser');
 
 const paths = {
   styles: {
@@ -22,8 +22,8 @@ const paths = {
   },
   js: {
     src: './src/js/main.js',
-    dest: './dist/assets/app.js',
-    all: './src/js/**/*.*'
+    all: './src/js/**/*.*',
+    dest: './dist/assets/app.min.js'
   },
 }
 
@@ -45,14 +45,17 @@ function js() {
     plugins: [
       resolve(),
       commonjs(),
+      eslint(),
       vue(),
       replace({
-        'process.env.NODE_ENV': JSON.stringify('development'),
-        'process.env.VUE_ENV': JSON.stringify('browser')
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'process.env.VUE_ENV': JSON.stringify(process.env.VUE_ENV || 'browser')
       }),
-      eslint(),
-      babel({exclude: 'node_modules/**'}),
-      uglify()
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled'
+      }),
+      terser()
     ]
   }).then(bundle => {
     return bundle.write({
@@ -69,10 +72,8 @@ function js() {
 }
 
 function watch() {
-  // Run initial tasks
   styles();
   js();
-  // Start watching
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.js.all, js);
 }

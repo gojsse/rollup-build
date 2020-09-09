@@ -1,6 +1,6 @@
 <template>
   <div class="posts__post">
-    <span>{{ postID }}</span> {{ post.title }}
+    <span>[{{ postID }}]</span> {{ niceTitle }}
   </div>
 </template>
 
@@ -18,11 +18,16 @@ export default {
       } else {
         return this.post.id;
       }
+    },
+    niceTitle: function() {
+      return this.post.title.length > 40 ? this.post.title.substring(0, 40) + '...' : this.post.title;
     }
   }
 }
 </script>
 
 <style>
-
+.posts__post {
+  padding: .25em;
+}
 </style>
