@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Change
-- Move fetch posts into a services file
 - Add tests
+
+## [0.0.4]
+### Changed
+- Move fetch posts into a services file instead of store
 
 ## [0.0.3]
 ### Changed
@@ -17,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.2]
 ### Changed
 - Vuex mapgetters/actions
-- Move fetch posts into actions
+- Move fetch posts into store action
 
 ## [0.0.1]
 ### Added
