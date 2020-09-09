@@ -1,12 +1,11 @@
 {
   "name": "gulp-rollup-build",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Boilerplate vue/rollup demo",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "gulp watch",
-    "build": "rollup -c"
+    "watch": "gulp watch"
   },
   "author": "",
   "license": "ISC",

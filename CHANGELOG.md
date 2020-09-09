@@ -6,9 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Change
-- Turn eslint back on
-- Fix Vue SFC CSS character error when eslint enabled
-- Use newer @rollup babel
+- Turn eslint back on / fix Vue SFC CSS character error when eslint enabled
+- Use newer @rollup/babel
+- Move fetch posts into a services file
+- Add tests
+
+## [0.0.2]
+### Changed
+- Vuex mapgetters/actions
+- Move fetch posts into actions
 
 ## [0.0.1]
 ### Added
