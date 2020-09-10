@@ -1,25 +1,27 @@
 <template>
   <div class="vue-app">
-    <p>Initialized vue app on #appVue element.</p>
-    <ActivityLog />
+    <Log />
     <Posts />
   </div>
 </template>
 
 <script>
-import ActivityLog from './components/ActivityLog/ActivityLog.vue';
+import Log from './components/Log/Log.vue';
 import Posts from './components/Posts/Posts.vue';
+import { mapActions } from 'vuex';
 
 export default {
   components: {
-    ActivityLog,
+    Log,
     Posts
   },
+  methods: {
+    ...mapActions([
+      'addToActivityLog'
+    ])
+  },
   created() {
-    this.$store.dispatch({
-      type: 'addToActivityLog',
-      message: 'Welcome to Rollup boilerplate'
-    });
+    this.addToActivityLog({message: 'Vue app created on #appVue element.'});
   }
 };
 </script>

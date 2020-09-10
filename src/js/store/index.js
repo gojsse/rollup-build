@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import fetchPosts from '../Services/posts';
+import posts from '../Services/posts';
 
 Vue.use(Vuex);
 
 const addToActivityLog = (state, newMessage) => {
-  console.log('message', newMessage);
   const updatedLog = [
     ...state.activityLog,
     {
@@ -53,7 +52,23 @@ export default new Vuex.Store({
       context.commit('addToActivityLog', payload.message);
     },
     fetchPosts(context) {
-      return fetchPosts(context);
+      context.commit('setError', null);
+      context.commit('isLoadingPosts');
+      context.commit('addToActivityLog', 'Fetching POSTS...');
+
+      return posts
+        .get(context)
+        .then(posts => {
+          context.commit('isNotLoadingPosts');
+          context.commit('addPostsToStore', posts);
+          context.commit('addToActivityLog', `SUCCESS: Post data retrieved`);
+          return posts;
+        })
+        .catch(error => {
+          context.commit('setError', error);
+          context.commit('addToActivityLog', `ERROR: Fetching post data failed. See log for details.`);
+          return error;
+        });
     }
   },
   getters: {

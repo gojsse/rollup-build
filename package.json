@@ -1,6 +1,6 @@
 {
   "name": "gulp-rollup-build",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Boilerplate vue/rollup demo",
   "main": "gulpfile.js",
   "scripts": {

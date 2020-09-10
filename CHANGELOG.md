@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Change
 - Add tests
 
+## [0.0.5]
+### Changed
+- Cleaned up store/services/etc.
+
 ## [0.0.4]
 ### Changed
 - Move fetch posts into a services file instead of store

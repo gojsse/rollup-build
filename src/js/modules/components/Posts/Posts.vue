@@ -1,12 +1,12 @@
 <template>
   <div class="posts">
     <p v-if="error">{{ error }}</p>
+    <Loading v-if="postsLoading" />
     <Post
       v-for="post in posts"
       :key="post.id"
       :post="post"
     />
-    <Loading v-if="postsLoading" />
   </div>
 </template>
 
@@ -31,14 +31,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchPosts',
-      'addToActivityLog'
+      'fetchPosts'
     ])
   },
   computed: {
     ...mapGetters([
       'posts',
-      'postsLoaded',
       'postsLoading',
       'error'
     ])

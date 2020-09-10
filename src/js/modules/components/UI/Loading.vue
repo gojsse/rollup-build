@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    LOADING POSTS <div class="lds-ripple"><div></div><div></div></div>
+    LOADING <div class="lds-ripple"><div></div><div></div></div>
   </div>
 </template>
 
